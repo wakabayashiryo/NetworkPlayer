@@ -1,30 +1,13 @@
-import RPi.GPIO as GPIO
-import time
+# index.html must put floder into templates
+# Accessing URL is http://volumio.local:8080/ 
 from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route('/',methods=['GET','POST'])
+@app.route("/",methods=["GET","POST"])
 def index():
-	return render_template('index.html')
+	return render_template("./index.html")
 	
-if __name__ == '__main__':
+if __name__ == "__main__":
 	app.debug = True
-	app.run(host='0.0.0.0',port=80)
-	Channel1 = 17
-	Channel2 = 27
-	Channel3 = 22
-
-	GPIO.setmode(GPIO.BCM)
-
-	GPIO.setup(Channel1,GPIO.OUT)
-	GPIO.setup(Channel2,GPIO.OUT)
-	GPIO.setup(Channel3,GPIO.OUT)
-	try:
-		time.sleep(3000.0)
-		GPIO.output(Channel1,GPIO.HIGH)
-		while true:
-			pass
-
-	except KeyboardInterrupt:
-		GPIO.cleanuup()
+	app.run(host="0.0.0.0",port=8080)
