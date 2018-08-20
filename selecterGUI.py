@@ -1,5 +1,11 @@
 # index.html must put floder into templates
 # Accessing URL is http://volumio.local:8080/ 
+# neccessary packages:
+# sudo apt-get install python3-rpi.gpio
+# sudo apt-get install python3-flask
+# sudo apt-get install python3-pip
+# sudo pip install flask-bootstrap
+
 from flask import Flask, render_template
 
 app = Flask(__name__)
