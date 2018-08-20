@@ -1,4 +1,4 @@
-# selecterServer
+# selectorServer
 ---
-Raspberry Media Player have selecter for RCA jack.
-this program control selecter using GUI on web browser.
+Raspberry Media Player have selector for RCA jack.
+this program control selector using GUI on web browser.
