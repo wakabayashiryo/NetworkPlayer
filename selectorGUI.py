@@ -7,13 +7,27 @@
 # sudo pip install flask-bootstrap
 
 import RPi.GPIO as GPIO
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 import time
 
 @app.route("/",methods=["GET","POST"])
 def index():
-	return render_template("./index.html")
-
+	if request.method == 'GET':
+		return render_template("./index.html")
+	else:
+		get_value = request.form["options"]
+		if get_value is 1:
+			GPIO.output(Channel1,GPIO.HIGH)
+			GPIO.output(Channel2,GPIO.LOW)
+			GPIO.output(Channel2,GPIO.LOW)
+		elif get_value is 2:
+			GPIO.output(Channel1,GPIO.LOW)
+			GPIO.output(Channel2,GPIO.HIGH)
+			GPIO.output(Channel2,GPIO.LOW)
+		elif get_value is 3:
+			GPIO.output(Channel1,GPIO.LOW)
+			GPIO.output(Channel2,GPIO.LOW)
+			GPIO.output(Channel2,GPIO.HIGH)
 def main():
 	Channel1 = 17
 	Channel2 = 22

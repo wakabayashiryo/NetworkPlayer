@@ -33,19 +33,22 @@
 				<br><br>
 				
 				<div class="btn-group btn-group-toggle btn-group-vertical shadow" data-toggle="buttons">
-					<label class="btn btn-success btn-lg rounded-0 col-md-12 active">
-						<input type="radio" name="options" id="option1" autocomplete="off" checked>Channel1
-					</label>
-					<br>
-					<label class="btn btn-success btn-lg col-md-12 ">
-						<input type="radio" name="options" id="option2" autocomplete="off">Channel2
-					</label>		
-					<br>
-					<label class="btn btn-success btn-lg rounded-0 col-md-12 ">
-						<input type="radio" name="options" id="option3" autocomplete="off">Channel3
-					</label>	
+					<form>
+						
+						<label class="btn btn-success btn-lg rounded-0 col-md-12 active">
+							<input type="radio" name="options" id="option1" value="1" autocomplete="off" checked>Channel1
+						</label>
+						<br>
+						<label class="btn btn-success btn-lg col-md-12 ">
+							<input type="radio" name="options" id="option2" value="2" autocomplete="off">Channel2
+						</label>		
+						<br>
+						<label class="btn btn-success btn-lg rounded-0 col-md-12 ">
+							<input type="radio" name="options" id="option3" value="3" autocomplete="off">Channel3
+						</label>	
+					</form>
 				</div>
-				
+					
 				<br><br>
 				
 				<div class="card-footer border-info"><br></div>
@@ -58,4 +61,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="./static/js/bootstrap.min.js"></script>
 </body>
+
+<script>
+$(function(){
+	$('input[name="options"]:radio'
+	).change(function(){
+		$.post("http://volumio.local:8080/",$("#form").serialize());
+		});
+});
+</script>
 
