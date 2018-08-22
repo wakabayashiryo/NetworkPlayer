@@ -39,15 +39,15 @@ def index():#ブラウザーからアクセスした時にGUI画面を返す
 		return render_template("./index.html")
 	else:#ラジオボタンから取得した文字列を抽出
 		get_value = request.form["options"]
-		if get_value is 'channel1':
+		if get_value is '1':
 			GPIO.output(Channel1,GPIO.HIGH)
 			GPIO.output(Channel2,GPIO.LOW)
 			GPIO.output(Channel3,GPIO.LOW)
-		elif get_value is 'channel2':
+		elif get_value is '2':
 			GPIO.output(Channel1,GPIO.LOW)
 			GPIO.output(Channel2,GPIO.HIGH)
 			GPIO.output(Channel3,GPIO.LOW)
-		elif get_value is 'channel3':
+		elif get_value is '3':
 			GPIO.output(Channel1,GPIO.LOW)
 			GPIO.output(Channel2,GPIO.LOW)
 			GPIO.output(Channel3,GPIO.HIGH)
