@@ -27,27 +27,27 @@ def main():
 	GPIO.setup(Channel2,GPIO.OUT)
 	GPIO.setup(Channel3,GPIO.OUT)
 
+	#default channel is 1
 	GPIO.output(Channel1,GPIO.HIGH)
 
 	app.debug = True
 	app.run(host="0.0.0.0",port=8080)
 
 @app.route("/",methods=["GET","POST"])
-
-def index():#ブラウザーからアクセスした時にGUI画面を返す
-	if request.method == 'GET':
+def index():
+	if request.method == 'GET':#get request is GET when browser accessed
 		return render_template("./index.html")
-	else:#ラジオボタンから取得した文字列を抽出
-		get_value = request.form["options"]
-		if get_value is '1':
+	else:#get request is POST when radio button is changed
+		channelNo = request.form["options"]
+		if channelNo is '1':
 			GPIO.output(Channel1,GPIO.HIGH)
 			GPIO.output(Channel2,GPIO.LOW)
 			GPIO.output(Channel3,GPIO.LOW)
-		elif get_value is '2':
+		elif channelNo is '2':
 			GPIO.output(Channel1,GPIO.LOW)
 			GPIO.output(Channel2,GPIO.HIGH)
 			GPIO.output(Channel3,GPIO.LOW)
-		elif get_value is '3':
+		elif channelNo is '3':
 			GPIO.output(Channel1,GPIO.LOW)
 			GPIO.output(Channel2,GPIO.LOW)
 			GPIO.output(Channel3,GPIO.HIGH)
