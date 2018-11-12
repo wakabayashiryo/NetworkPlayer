@@ -24,7 +24,7 @@ this program control selector using GUI on web browser.
 > sudo apt-get -y install python3-flask
 4. add service for automatically run program
 5. copy service files to system folder
-> cp selectorServer/selector.service /etc/systemd/system
+> sudo cp selectorServer/selector.service /etc/systemd/system
 6. start service and enable to automatically run
 > sudo systemctl daemon-reload   
 > sudo systemctl start selector   
