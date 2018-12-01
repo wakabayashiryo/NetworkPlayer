@@ -36,3 +36,12 @@ this program control selector using GUI on web browser.
 ## STEP3: Set Static IP address
 ![network configrations](./staticIP.png)
 
+# STEP4: Test access
+- ### mDNS version
+    - volumio http://volumio.local   
+    - selector http://volumio.local:8080
+
+- ### static IP version
+
+    - volumio http://192.168.1.56:8080/   
+    - selector http://192.168.1.56/   
