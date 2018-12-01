@@ -1,8 +1,8 @@
 # selectorServer
----
+
 Raspberry Media Player have selector for RCA jack.
 this program control selector using GUI on web browser.
-## STEP1 installation volumio OS [on windows]
+## STEP1: installation volumio OS [on windows]
 [reference site](https://itdecoboconikki.com/2017/02/10/2017volumio-2041install/)
 1. download image file of leatest volumio   
 2. format SD card using SD CardFormatter    
@@ -12,9 +12,9 @@ this program control selector using GUI on web browser.
 6. using browser set configration of volumio   
 [setting guide for using hardware](http://www.raspberrypiwiki.com/index.php/File:RPI-HIFI-DAC-manual-en.pdf)
 7. go to setting selector server    
-**If you can not access the volumio,using application to serach IP address **
+**If you can not access the volumio,using application to serach IP address**
 
-## STEP2 installation selectorserver [on Linux]
+## STEP2: installation selectorserver [on Linux]
 1. access to http://volumio.local/dev and enable SSH.
 1. connect terminal using ssh ,can do by teraterm or linux terminal
 2. clone this repository 
@@ -32,3 +32,7 @@ this program control selector using GUI on web browser.
 7. check running service
 > sudo systemctl status selector
 8. reboot
+
+## STEP3: Set Static IP address
+![network configrations](./staticIP.png)
+
