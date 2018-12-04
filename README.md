@@ -45,3 +45,13 @@ this program control selector using GUI on web browser.
 
     - volumio http://192.168.1.56:8080/   
     - selector http://192.168.1.56/   
+   
+## topic
+
+- The power status LED of raspberry pi change blinkng patern to heartrate.
+
+    > sudo emacs /boot/config.txt 
+
+    Add the following   
+
+    > dtparam=pwr_led_trigger=heartbeat
