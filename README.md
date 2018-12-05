@@ -43,8 +43,8 @@ this program control selector using GUI on web browser.
 
 - ### static IP version
 
-    - volumio http://192.168.1.56:8080/   
-    - selector http://192.168.1.56/   
+    - volumio http://192.168.1.56/   
+    - selector http://192.168.1.56:8080/   
    
 ## topic
 
