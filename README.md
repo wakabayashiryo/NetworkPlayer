@@ -55,3 +55,11 @@ this program control selector using GUI on web browser.
     Add the following   
 
     > dtparam=pwr_led_trigger=heartbeat
+    
+- Digital Filter assemblies in PCM5122
+
+    [Reference site](https://www.phileweb.com/review/article/201812/04/3283.html)
+
+    > alsamixer
+    
+    
