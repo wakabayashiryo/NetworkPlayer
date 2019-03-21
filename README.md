@@ -1,13 +1,14 @@
-# selectorServer
+# selector Server
 
-Raspberry Media Player have selector for RCA jack.
+Raspberry Pi Media Player have output selector for RCA jack.
 this program control selector using GUI on web browser.
 ## STEP1: installation volumio OS [on windows]
 [reference site](https://itdecoboconikki.com/2017/02/10/2017volumio-2041install/)
 1. download image file of leatest volumio   
 2. format SD card using SD CardFormatter    
 3. write image file to SD card using Win32DiskImager   
-4. Awhile, connect access point using PC or Smart phone (SSID:Volumio password:volumio2)
+4. Awhile, connect Access Point using PC or Smart phone    
+ (SSID:Volumio Password:volumio2)
 5. access http://volumio.local [in local net]
 6. using browser set configration of volumio   
 [setting guide for using hardware](http://www.raspberrypiwiki.com/index.php/File:RPI-HIFI-DAC-manual-en.pdf)
@@ -17,42 +18,52 @@ this program control selector using GUI on web browser.
 
 ## STEP2: installation selectorserver [on Linux]
 1. access to http://volumio.local/dev and enable SSH.
-1. connect terminal using ssh ,can do by teraterm or linux terminal
+1. connect terminal using ssh ,can do by teraterm or linux terminal   
+(Login name:volumio Password:volumio)
 2. update and upgrade in the volumio   
-> sudo apt-get update   
-> sudo apt-get dist-upgrade   
+    > sudo apt-get update   
+    > sudo apt-get dist-upgrade   
 3. install python3 on volumio   
-> sudo apt-get install python3   
+    > sudo apt-get install python3   
 2. clone this repository 
-> git clone https://github.com/wakabayashiryo/selectorServer.git
+    > git clone https://github.com/wakabayashiryo/selectorServer.git
 3. install necessary packages for this program on python3
-> sudo apt-get -y install python3-rpi.gpio python3-flask   
+    > sudo apt-get -y install python3-rpi.gpio python3-flask   
 4. add service for automatically run program
 5. copy service files to system folder
-> sudo cp selectorServer/selector.service /etc/systemd/system
+    > sudo cp selectorServer/selector.service /etc/systemd/system
 6. start service and enable to automatically run
-> sudo systemctl daemon-reload   
-> sudo systemctl start selector   
-> sudo systemctl enable selector   
+    > sudo systemctl daemon-reload   
+    > sudo systemctl start selector   
+    > sudo systemctl enable selector   
 7. check running service
-> sudo systemctl status selector
+    > sudo systemctl status selector
 8. reboot
 
-## STEP3: Set Static IP address
-![network configrations](./staticIP.png)
+## STEP3: Set Static IP address & Hotspot
+1. Setting Icon  >> Network
+2. Disable Automatic IP
+3. Set Parameter
+    |item|parameter|   
+    |:--|:--|   
+    |Static IP address|192.168.0.56|    
+    |NetMask|255.255.255.0|   
+    |GateWay|192.168.0.1|    
+4. Save Configration
+5. Enable Fallback of Hotspot
+4. Save Configration
 
-# STEP4: Test access
+## STEP4: Access Test
 - ### mDNS version
     - volumio http://volumio.local   
     - selector http://volumio.local:8080
 
 - ### static IP version
 
-    - volumio http://192.168.1.56/   
-    - selector http://192.168.1.56:8080/   
+    - volumio http://192.168.0.56/   
+    - selector http://192.168.0.56:8080/   
    
 ## topic
-
 - The power status LED of raspberry pi change blinkng patern to heartrate.
 
     > sudo emacs /boot/config.txt 
@@ -66,5 +77,14 @@ this program control selector using GUI on web browser.
     [Reference site](https://www.phileweb.com/review/article/201812/04/3283.html)
 
     > alsamixer
-    
-    
+-  If hotspot did not work when Setup new network    
+    1. Delete Static IP address lines in /etc/dhcpcd.conf
+    1. setting SSID and PSK of New Router in /etc/wpa_supplicant/wpa_supplicant.conf   
+        ~~~
+        network={
+        　　　ssid="SSID"
+        　　　psk=password
+        }    
+        ~~~
+    1. reboot
+    1. Serch Volumio's IP address and Resetup

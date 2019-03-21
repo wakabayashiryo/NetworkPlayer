@@ -15,7 +15,7 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<a href="http://192.168.1.56">
+		<a href="http://192.168.0.56">
 			<img src="static/img/volumio-logo.PNG" class="img-fluid">
 		</a>		
 	</div>
@@ -67,7 +67,7 @@
 $(function(){
 	$('input[name="options"]:radio'
 	).change(function(){
-		$.post("http://192.168.1.56:8080/",$("form").serialize());
+		$.post("http://192.168.0.56:8080/",$("form").serialize());
 		});
 });
 </script>
