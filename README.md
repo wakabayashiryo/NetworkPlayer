@@ -43,12 +43,14 @@ this program control selector using GUI on web browser.
 ## STEP3: Set Static IP address & Hotspot
 1. Setting Icon  >> Network
 2. Disable Automatic IP
-3. Set Parameter
+3. Set Parameter   
+
     |item|parameter|   
     |:--|:--|   
     |Static IP address|192.168.0.56|    
     |NetMask|255.255.255.0|   
     |GateWay|192.168.0.1|    
+    
 4. Save Configration
 5. Enable Fallback of Hotspot
 4. Save Configration
