@@ -9,7 +9,7 @@ this program control selector using GUI on web browser.
 3. Write image file to SD card using Win32DiskImager   
 4. Insert SD card,Power on. don't plug ethernet.   
 5. Awhile, connect Access Point using PC or Smart phone    
- (SSID:Volumio Password:volumio2)
+    *(SSID:Volumio Password:volumio2)*
 6. Access http://volumio.local [in local net]
 7. Using browser set configration of volumio   
 [setting guide for using hardware](http://www.raspberrypiwiki.com/index.php/File:RPI-HIFI-DAC-manual-en.pdf)
@@ -20,8 +20,8 @@ this program control selector using GUI on web browser.
 ## STEP2: Installation Selectorserver [on Linux]
 1. Access to http://volumio.local/dev and enable SSH.
 1. Connect terminal using ssh ,can do by teraterm or linux terminal   
-(Login name:volumio Password:volumio)
-2. Update and upgrade in the volumio   
+    *(Login name:volumio Password:volumio)*
+2. Update and upgrade packages of the volumio   
     > sudo apt-get update   
     > sudo apt-get dist-upgrade   
 3. Install python3 on volumio   
@@ -30,8 +30,8 @@ this program control selector using GUI on web browser.
     > git clone https://github.com/wakabayashiryo/selectorServer.git
 3. Install necessary packages for this program on python3
     > sudo apt-get -y install python3-rpi.gpio python3-flask   
-4. Add service for automatically run program
-5. Copy service files to system folder
+4. Add service for automatically run program    
+    Copy service files to system folder
     > sudo cp selectorServer/selector.service /etc/systemd/system
 6. Start service and enable to automatically run
     > sudo systemctl daemon-reload   
