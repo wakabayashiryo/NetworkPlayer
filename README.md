@@ -66,6 +66,17 @@ this program control selector using GUI on web browser.
     - volumio http://192.168.0.56/   
     - selector http://192.168.0.56:8080/   
    
+## Bug report
+- Network
+    - Condition    
+        When use WiFi USB dongle of GW-USEco300,It makes WiFi router unstable. 
+    - Resolve   
+        I chaged the NIC from its dongle to NIC on board,the WiFI router operated stable.
+        and I can use 2.4GHz and 5GHz band too.
+
+## Manage System
+- [Backup Manual](./backup_manual.md)
+
 ## topic
 - The power status LED of raspberry pi change blinkng patern to heartrate.
 
