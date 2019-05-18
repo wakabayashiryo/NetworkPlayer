@@ -6,7 +6,8 @@ this program control selector using GUI on web browser.
 [reference site](https://itdecoboconikki.com/2017/02/10/2017volumio-2041install/)
 1. Download image file of leatest volumio   
 2. Format SD card using SD CardFormatter    
-3. Write image file to SD card using Win32DiskImager   
+3. Write image file to SD card using Win32DiskImager or use dd command at LINUX   
+    > sudo dd bs=1G if=/volumio-2.xxx-yyyy-mm-dd-pi.img of=/dev/xxx status=progress
 4. Insert SD card,Power on. don't plug ethernet.   
 5. Awhile, connect Access Point using PC or Smart phone    
     *(SSID:Volumio Password:volumio2)*
@@ -21,15 +22,15 @@ this program control selector using GUI on web browser.
 1. Access to http://volumio.local/dev and enable SSH.
 1. Connect terminal using ssh ,can do by teraterm or linux terminal   
     *(Login name:volumio Password:volumio)*
+    > ssh 192.168.0.xx -l volumio   
+    >> volumio   
 2. Update and upgrade packages of the volumio   
     > sudo apt-get update   
     > sudo apt-get dist-upgrade   
-3. Install python3 on volumio   
-    > sudo apt-get install python3   
 2. Clone this repository 
     > git clone https://github.com/wakabayashiryo/selectorServer.git
-3. Install necessary packages for this program on python3
-    > sudo apt-get -y install python3-rpi.gpio python3-flask   
+3. Install necessary packages for server program 
+    > sudo apt-get -y install python3 python3-rpi.gpio python3-flask   
 4. Add service for automatically run program    
     Copy service files to system folder
     > sudo cp selectorServer/selector.service /etc/systemd/system
@@ -78,13 +79,14 @@ this program control selector using GUI on web browser.
 - [Backup Manual](./backup_manual.md)
 
 ## topic
-- The power status LED of raspberry pi change blinkng patern to heartrate.
+- The power status LED of raspberry pi change blinkng patern to heartrate and change the current limit of USB port from 0.6A to 1.2A .
 
     > sudo emacs /boot/config.txt 
 
     Add the following   
 
-    > dtparam=pwr_led_trigger=heartbeat
+    > dtparam=pwr_led_trigger=heartbeat   
+    > max_usb_current=1
     
 - Digital Filter assemblied in PCM5122
 
