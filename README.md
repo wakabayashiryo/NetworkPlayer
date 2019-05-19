@@ -24,13 +24,14 @@ this program control selector using GUI on web browser.
     *(Login name:volumio Password:volumio)*
     > ssh 192.168.0.xx -l volumio   
     >> volumio   
-2. Update and upgrade packages of the volumio   
-    > sudo apt-get update   
-    > sudo apt-get dist-upgrade   
 2. Clone this repository 
     > git clone https://github.com/wakabayashiryo/selectorServer.git
 3. Install necessary packages for server program 
+    > sudo apt-get update   
     > sudo apt-get -y install python3 python3-rpi.gpio python3-flask   
+
+    **Must not to use the "dist-upgrade" command**   
+    **Use only updates from the GUI**
 4. Add service for automatically run program    
     Copy service files to system folder
     > sudo cp selectorServer/selector.service /etc/systemd/system
@@ -40,6 +41,26 @@ this program control selector using GUI on web browser.
     > sudo systemctl enable selector   
 7. Check running service
     > sudo systemctl status selector
+    ~~~
+    ● selector.service
+   Loaded: loaded (/etc/systemd/system/selector.service; enabled)
+   Active: active (running) since Sun 2019-05-19 02:19:25 UTC; 5min ago
+    Main PID: 530 (python3)
+    CGroup: /system.slice/selector.service
+            ├─530 /usr/bin/python3 /home/volumio/selectorServer/selectorGUI.py
+            └─671 /usr/bin/python3 /home/volumio/selectorServer/selectorGUI.py
+
+    May 19 02:19:25 volumio systemd[1]: Starting selector.service...
+    May 19 02:19:25 volumio systemd[1]: Started selector.service.
+    May 19 02:19:29 volumio python3[530]: * Running on http://0.0.0.0:8080/
+    May 19 02:19:29 volumio python3[530]: * Restarting with reloader
+    May 19 02:20:44 volumio python3[530]: /home/volumio/selectorServer/selectorGUI.py:26: RuntimeWarning: This channel is already in use, continuing anyway.  Use GPIO.setwarnings(False) to disable warnings.
+    May 19 02:20:44 volumio python3[530]: GPIO.setup(Channel1,GPIO.OUT)
+    May 19 02:20:44 volumio python3[530]: /home/volumio/selectorServer/selectorGUI.py:27: RuntimeWarning: This channel is already in use, continuing anyway.  Use GPIO.setwarnings(False) to disable warnings.
+    May 19 02:20:44 volumio python3[530]: GPIO.setup(Channel2,GPIO.OUT)
+    May 19 02:20:44 volumio python3[530]: /home/volumio/selectorServer/selectorGUI.py:28: RuntimeWarning: This channel is already in use, continuing anyway.  Use GPIO.setwarnings(False) to disable warnings.
+    May 19 02:20:44 volumio python3[530]: GPIO.setup(Channel3,GPIO.OUT)
+    ~~~
 8. Reboot
 
 ## STEP3: Set Static IP address & Hotspot
@@ -67,13 +88,15 @@ this program control selector using GUI on web browser.
     - volumio http://192.168.0.56/   
     - selector http://192.168.0.56:8080/   
    
-## Bug report
-- Network
-    - Condition    
-        When use WiFi USB dongle of GW-USEco300,It makes WiFi router unstable. 
-    - Resolve   
-        I chaged the NIC from its dongle to NIC on board,the WiFI router operated stable.
-        and I can use 2.4GHz and 5GHz band too.
+## ***Important Report***
+- dist-upgrade   
+    If you use dist-upgrade at ssh,system will occure problems unexpexted.   
+    ex)   
+    - USB device is not recognized and restarts repeatedly   
+    - Crash on router when connecting to 2.4 GHz band   
+    
+    Must not to use the "dist-upgrade" command.   
+    **Use only updates from the GUI.**  
 
 ## Manage System
 - [Backup Manual](./backup_manual.md)
@@ -81,7 +104,7 @@ this program control selector using GUI on web browser.
 ## topic
 - The power status LED of raspberry pi change blinkng patern to heartrate and change the current limit of USB port from 0.6A to 1.2A .
 
-    > sudo emacs /boot/config.txt 
+    > sudo nano /boot/config.txt 
 
     Add the following   
 

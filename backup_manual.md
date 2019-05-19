@@ -66,3 +66,5 @@
         |data|ver.|file name|difference|remark|
         |:---|:---|:--------|:---------|:-----|
         |2019/5/11|1.00|volumio20190511.img|create initial backup|
+        |2019/5/18|0.99|volumio20190518.img|downgraded to version 2.526, confirmed stable|
+        |2019/5/19|1.01|volumio20190519.img|upgrade to 2.575 and fix bug of connection by 2.4GHz band|
