@@ -20,14 +20,14 @@
         ~~~
 
     - Create backup as img file
-        > sudo dd bs=1G if=/dev/sdb of=volumioyyyymmdd.img status=progress   
+        > sudo dd bs=100M if=/dev/mmcblk0 of=volumioyyyymmdd.img status=progress   
 
         if=The Device name of SD card for backup   
         of=img file name and its path   
         bs=Buffer Size   
         status=progress Display the progress   
         - example   
-            > sudo dd bs=1G if=/dev/sdb of=volumio20190511.img status=progress
+            > sudo dd bs=100M if=/dev/mmcblk0 of=volumio20190511.img status=progress
 
     - Move the img file to samba server folder and write version history    
     
@@ -52,7 +52,7 @@
         ~~~
 
     - Restore backup from img file to SD card
-        > sudo dd bs=1G if=volumioyyyymmdd.img of=/dev/sdb  status=progress 
+        > sudo dd bs=100M if=volumioyyyymmdd.img of=/dev/mmcblk0  status=progress 
     
         if=The backup of img file   
         of=The device name of the destination SD card   
@@ -60,7 +60,7 @@
         status=progress Display the progress   
         
         - example   
-            > sudo dd bs=1G if=volumio20190511.img of=/dev/sdb status=progress
+            > sudo dd bs=100M if=volumio20190511.img of=/dev/mmcblk0 status=progress
 
     - ## Histrory
         |data|ver.|file name|difference|remark|
