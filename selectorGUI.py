@@ -25,7 +25,7 @@ Channel1 = 17
 Channel2 = 27
 Channel3 = 22
 
-Swtich = 3
+Switch = 3
 Led    = 4
 
 def buttonEvent(channel1):
@@ -41,14 +41,13 @@ def main():
 
 	#default channel is 1
 	GPIO.output(Channel1,GPIO.HIGH)
+	# The led includ in SW
+	GPIO.setup(Led,GPIO.OUT)
+	GPIO.output(Led,GPIO.HIGH)
 
-        # The led includ in SW
-        GPIO.setup(Led,GPIO.OUT)
-        GPIO.output(Led,GPIO.HIGH)
-        
-        #GPIO3(No.5) is input.
-        GPIO.setup(Switch,GPIO.IN)
-        GPIO.add_event_detect(Switch, GPIO.FALLING, callback=buttonEvent, bouncetime=300) 
+	#GPIO3(No.5) is input.
+	GPIO.setup(Switch,GPIO.IN)
+	GPIO.add_event_detect(Switch, GPIO.FALLING, callback=buttonEvent, bouncetime=300) 
 
 	app.debug = True
 	app.run(host="0.0.0.0",port=8080)
