@@ -10,15 +10,27 @@
 # No.27  ---> channel2
 # No.22  ---> channel3
 
+# Power button and control LED
+# No.3   ---> SW
+# No.4   ---> LED
+
 import RPi.GPIO as GPIO
 from flask import Flask, render_template,request
 import time
+import os
 
 app = Flask(__name__)
 	
 Channel1 = 17
 Channel2 = 27
 Channel3 = 22
+
+Swtich = 3
+Led    = 4
+
+def buttonEvent(channel1):
+    # sysytem shutdown with "Wake From Halt Function"
+    os.system("sudo shutdown -h now")
 
 def main():
 	GPIO.setmode(GPIO.BCM)
@@ -29,6 +41,14 @@ def main():
 
 	#default channel is 1
 	GPIO.output(Channel1,GPIO.HIGH)
+
+        # The led includ in SW
+        GPIO.setup(Led,GPIO.OUT)
+        GPIO.output(Led,GPIO.HIGH)
+        
+        #GPIO3(No.5) is input.
+        GPIO.setup(Switch,GPIO.IN)
+        GPIO.add_event_detect(Switch, GPIO.FALLING, callback=buttonEvent, bouncetime=300) 
 
 	app.debug = True
 	app.run(host="0.0.0.0",port=8080)
