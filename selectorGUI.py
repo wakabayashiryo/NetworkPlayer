@@ -11,8 +11,8 @@
 # No.22  ---> channel3
 
 # Power button and control LED
-# No.3   ---> SW
-# No.4   ---> LED
+# No.3   ---> Switch
+# No.4   ---> LED builtin SW
 
 import RPi.GPIO as GPIO
 from flask import Flask, render_template,request
@@ -39,13 +39,13 @@ def main():
 	GPIO.setup(Channel2,GPIO.OUT)
 	GPIO.setup(Channel3,GPIO.OUT)
 
-	#default channel is 1
+	# default channel is 1
 	GPIO.output(Channel1,GPIO.HIGH)
-	# The led includ in SW
+	# For the led bulitin SW
 	GPIO.setup(Led,GPIO.OUT)
 	GPIO.output(Led,GPIO.HIGH)
 
-	#GPIO3(No.5) is input.
+	# GPIO3(No.5) is input. for Switch
 	GPIO.setup(Switch,GPIO.IN)
 	GPIO.add_event_detect(Switch, GPIO.FALLING, callback=buttonEvent, bouncetime=300) 
 
@@ -56,7 +56,7 @@ def main():
 def index():
 	if request.method == 'GET':#get request is GET when browser accessed
 		return render_template("./index.html")
-	else:#get request is POST when radio button is changed
+	else:# get request is POST when radio button is changed
 		channelNo = request.form["options"]
 		if channelNo is '1':
 			GPIO.output(Channel1,GPIO.HIGH)
