@@ -88,6 +88,13 @@ this program control selector using GUI on web browser.
     - volumio http://192.168.0.56/   
     - selector http://192.168.0.56:8080/   
    
+## STEP5: Mount Network Drive (Samba Server)
+- Setting Network Drive    
+    Setting -> MyMusic -> Add Network Drive    
+    ![](./NetworkDriveSetting.png)
+    How abount Samba Server   
+    https://github.com/wakabayashiryo/Samba_Server/
+
 ## ***Important Report***
 - dist-upgrade   
     If you use dist-upgrade at ssh,system will occure problems unexpexted.   
