@@ -134,3 +134,10 @@ this program control selector using GUI on web browser.
         ~~~
     1. Reboot
     1. Serch Volumio's IP address and Resetup
+- Register to DNS resolver volumio.local   
+    using hostname,will be able to access volumio by android smartphone.
+    
+    > sudo emacs /etc/hosts
+    ~~~
+    192.168.0.56    volumio.local
+    ~~~
