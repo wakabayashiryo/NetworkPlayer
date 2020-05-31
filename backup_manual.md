@@ -20,14 +20,14 @@
         ~~~
 
     - Create backup as img file
-        > sudo dd bs=100M if=/dev/mmcblk0 of=volumioyyyymmdd.img status=progress   
+        > sudo dd bs=100M if=/dev/mmcblk0 of=volumioyyyymmdd.img status=progress  conv=fsync   
 
         if=The Device name of SD card for backup   
         of=img file name and its path   
         bs=Buffer Size   
         status=progress Display the progress   
         - example   
-            > sudo dd bs=100M if=/dev/mmcblk0 of=volumio20190511.img status=progress
+            > sudo dd bs=100M if=/dev/mmcblk0 of=volumio20190511.img status=progress conv=fsync   
 
     - Move the img file to samba server folder and write version history    
     
@@ -52,7 +52,7 @@
         ~~~
 
     - Restore backup from img file to SD card
-        > sudo dd bs=100M if=volumioyyyymmdd.img of=/dev/mmcblk0  status=progress 
+        > sudo dd bs=100M if=volumioyyyymmdd.img of=/dev/mmcblk0  status=progress conv=fsync    
     
         if=The backup of img file   
         of=The device name of the destination SD card   
@@ -60,7 +60,7 @@
         status=progress Display the progress   
         
         - example   
-            > sudo dd bs=100M if=volumio20190511.img of=/dev/mmcblk0 status=progress
+            > sudo dd bs=100M if=volumio20190511.img of=/dev/mmcblk0 status=progress  conv=fsync    conv=fsync
 
     - ## Histrory
         |data|ver.|file name|difference|remark|
@@ -70,4 +70,5 @@
         |2019/5/19|1.01|volumio20190519.img|upgrade to 2.575 and fix bug of connection by 2.4GHz band|
         |2019/6/9|1.10|volumio20190609.img|upgrade to 2.586 and add change specification of hardware|
         |2020/2/8|1.11|volumio20200208.img|upgrade to 2.699 and Regular backup|
+        |2020/5/30|1.12|volumio20200530.img|upgrade to 2.777 and Regular backup|
 
