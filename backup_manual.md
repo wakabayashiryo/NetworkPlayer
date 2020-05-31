@@ -70,5 +70,4 @@
         |2019/5/19|1.01|volumio20190519.img|upgrade to 2.575 and fix bug of connection by 2.4GHz band|
         |2019/6/9|1.10|volumio20190609.img|upgrade to 2.586 and add change specification of hardware|
         |2020/2/8|1.11|volumio20200208.img|upgrade to 2.699 and Regular backup|
-        |2020/5/30|1.12|volumio20200530.img|upgrade to 2.777 and Regular backup|
 
