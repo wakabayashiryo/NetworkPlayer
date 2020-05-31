@@ -7,7 +7,7 @@ this program control selector using GUI on web browser.
 1. Download image file of leatest volumio   
 2. Format SD card using SD CardFormatter    
 3. Write image file to SD card using Win32DiskImager or use dd command at LINUX   
-    > sudo dd bs=1G if=/volumio-2.xxx-yyyy-mm-dd-pi.img of=/dev/xxx status=progress
+    > sudo dd bs=1M if=/volumio-2.xxx-yyyy-mm-dd-pi.img of=/dev/xxx status=progress conv=fsync   
 4. Insert SD card,Power on. don't plug ethernet.   
 5. Awhile, connect Access Point using PC or Smart phone    
     *(SSID:Volumio Password:volumio2)*
