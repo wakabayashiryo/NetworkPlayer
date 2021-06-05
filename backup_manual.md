@@ -71,4 +71,5 @@
         |2019/6/9|1.10|volumio20190609.img|upgrade to 2.586 and add change specification of hardware|
         |2020/2/8|1.11|volumio20200208.img|upgrade to 2.699 and Regular backup|
         |2020/8/29|1.12|volumio20200829.img|upgrade to 2.806 and Regular backup|
+        |2021/3/7|1.13|volumio20210307.img|minor backup|
 
