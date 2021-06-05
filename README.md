@@ -104,7 +104,16 @@ this program control selector using GUI on web browser.
     
     Must not to use the "dist-upgrade" command.   
     **Use only updates from the GUI.**  
-
+    
+- Hardware Bug  
+    I installed from first step again, Volumio does not start up Hotspot.    
+    Restart with plug WiFi dongle again, occured kernel panic and freeze OS.    
+    I tried installing other device, Problems did not occured.   
+  
+    I think that There is something wrong with the device you are using ...   
+   
+    **When update ths system to next generation, I will buy new device without bug.**
+    
 ## Manage System
 - [Backup Manual](./backup_manual.md)
 
