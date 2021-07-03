@@ -114,6 +114,11 @@ this program control selector using GUI on web browser.
    
     **When update ths system to next generation, I will buy new device without bug.**
     
+- Network   
+    When not using USB WiFi dongle and use NIC of board , Network speed is slow down.     
+    That reslut,Playback may be interrupted    
+    in the case of putting Raspberry pi in metal case.must use external WiFi adaptor.    
+
 ## Manage System
 - [Backup Manual](./backup_manual.md)
 
